@@ -32,7 +32,7 @@ function Main() {
       const survivalResponse = await axios.get(`http://localhost:8080/survival/${fishSpecies}`);
       setSurvivalData(survivalResponse.data);
     } catch (error) {
-      console.error("Error occurred:", error);
+      console.error("Error occurred:", Error);
     }
   };
 
