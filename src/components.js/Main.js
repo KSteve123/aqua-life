@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import bg from '../assets/bg.mp4';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Main() {
+
+  
   const [selectedFile, setSelectedFile] = useState(null);
   const [prediction, setPrediction] = useState("");
   const [survivalData, setSurvivalData] = useState({});
@@ -37,8 +41,15 @@ function Main() {
   };
 
   return (
+    
     <div>
-      <h2>Freshwater Fish Species Identifier</h2>
+        <div className='background'>
+          <div className="overlay"></div>
+        <video src={bg} autoPlay loop muted/>
+        
+        <div className="content">
+        <h1>Freshwater Fish Species Identifier</h1>
+        <div class="mt-4">
       <form onSubmit={handleSubmit}>
         <input type="file" onChange={handleFileChange} />
         <button type="submit">Upload and Identify</button>
@@ -51,9 +62,14 @@ function Main() {
           <p>pH: {survivalData.ph}</p>
           <p>Diet: {survivalData.diet}</p>
           <p>Habitat: {survivalData.habitat}</p>
+          
         </div>
       )}
     </div>
+    </div>
+    </div>
+    </div>
+    
   );
 }
 
