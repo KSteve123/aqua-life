@@ -35,6 +35,7 @@ function Main() {
       // Retrieve survival data from Spring Boot service
       const survivalResponse = await axios.get(`http://localhost:8080/survival/${fishSpecies}`);
       setSurvivalData(survivalResponse.data);
+      
     } catch (error) {
       console.error("Error occurred:", Error);
     }
@@ -47,7 +48,7 @@ function Main() {
           <div className="overlay"></div>
         <video src={bg} autoPlay loop muted/>
         
-        <div className="content">
+        <div className='content'>
         <h1>Freshwater Fish Species Identifier</h1>
         <div class="mt-4">
       <form onSubmit={handleSubmit}>
@@ -55,13 +56,16 @@ function Main() {
         <button type="submit">Upload and Identify</button>
       </form>
       {prediction && (
-        <div>
-          <h3>Prediction: {prediction}</h3>
+        <div class="mt-4">
+          <h3>Prediction {prediction}</h3>
           <h4>Survival Data:</h4>
-          <p>Temperature: {survivalData.temperature}</p>
-          <p>pH: {survivalData.ph}</p>
+          <p>Name: {survivalData.name}</p>
+          <p>Temperature: {survivalData.water_temp}</p>
+          <p>pH: {survivalData.ph_level}</p>
           <p>Diet: {survivalData.diet}</p>
-          <p>Habitat: {survivalData.habitat}</p>
+          <p>Tank Size: {survivalData.tank_size}</p>
+          <p>Behaviour: {survivalData.behaviour}</p>
+          
           
         </div>
       )}
@@ -69,6 +73,8 @@ function Main() {
     </div>
     </div>
     </div>
+    
+    
     
   );
 }
