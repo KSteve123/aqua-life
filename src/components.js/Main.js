@@ -49,21 +49,23 @@ function Main() {
         <video src={bg} autoPlay loop muted/>
         
         <div className='content'>
-        <h1>Freshwater Fish Species Identifier</h1>
+        <h1 class="display-1" className="head">Aqua Life</h1>
+        <h1 className="description">Know more about your loved fish</h1>
         <div class="mt-4">
       <form onSubmit={handleSubmit}>
         <input type="file" onChange={handleFileChange} />
-        <button type="submit">Upload and Identify</button>
-      </form>
+        <button type="submit">Upload and Identify</button><br></br><br></br>
+        <button type="button" class="btn btn-dark">Admin?</button>
+      </form><br></br>
       {prediction && (
-        <div class="mt-4">
-          <h3>Prediction {prediction}</h3>
+        <div class="mt-4" className="output">
+          <h3 className="prediction">Prediction: {prediction}</h3>
           <h4>Survival Data:</h4>
           <p>Name: {survivalData.name}</p>
-          <p>Temperature: {survivalData.water_temp}</p>
+          <p>Temperature: {survivalData.water_temp} °C</p>
           <p>pH: {survivalData.ph_level}</p>
           <p>Diet: {survivalData.diet}</p>
-          <p>Tank Size: {survivalData.tank_size}</p>
+          <p>Tank Size: {survivalData.tank_size} Feet</p>
           <p>Behaviour: {survivalData.behaviour}</p>
           
           

@@ -22,9 +22,8 @@ video{
   top: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  color: #dbdfdf;
+  color: #dfdada;
   
 }
 
@@ -34,9 +33,29 @@ video{
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, .65);
 }
 
 p{
-  color: aqua;
+  color: rgba(244, 200, 39, 0.921);
+  text-align: center;
+  font-size: 18px;
+}
+
+.head{
+  color: rgba(22, 234, 245, 0.478);
+  font-size: 140px;
+}
+
+.description{
+  color: rgba(35, 218, 26, 0.696);
+  font-size: 60px;
+}
+
+.output{
+  background-color: #8b858541;
+}
+
+.prediction{
+  color: rgb(7, 7, 7);
 }
