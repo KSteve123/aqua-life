@@ -5,6 +5,8 @@ import Main from './components.js/Main';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdminLogin from './components.js/AdminLogin';
 import UserCheck from './components.js/ReturnUser';
+import SpeciesView from './components.js/SpeciesInfo';
+import EditSpecies from './components.js/SpeciesEdit';
 
 function App() {
     return(
@@ -13,6 +15,8 @@ function App() {
      <Route index element={<Main/>} />
      <Route path='/AdminLogin' element={<AdminLogin/>} />
      <Route path='/ReturnUser' element={<UserCheck/>} />
+     <Route path='/SpeciesInfo' element={<SpeciesView/>} />
+     <Route path='/SpeciesEdit/:name' element={<EditSpecies/>} />
      </Routes>
      </BrowserRouter>
     )
