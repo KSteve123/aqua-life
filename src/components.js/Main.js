@@ -14,8 +14,15 @@ function Main() {
     setSelectedFile(event.target.files[0]);
   };
 
+  const AdminLog=(e)=>{
+    window.location.href = '/AdminLogin'
+
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+
 
     const formData = new FormData();
     formData.append("file", selectedFile);
@@ -55,7 +62,7 @@ function Main() {
       <form onSubmit={handleSubmit}>
         <input type="file" onChange={handleFileChange} />
         <button type="submit">Upload and Identify</button><br></br><br></br>
-        <button type="button" class="btn btn-dark">Admin?</button>
+        <button type="button" class="btn btn-dark" onClick={AdminLog}>Admin?</button>
       </form><br></br>
       {prediction && (
         <div class="mt-4" className="output">
