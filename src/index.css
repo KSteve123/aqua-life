@@ -4,15 +4,23 @@
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.background{
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  z-index: -1; /* Places the background behind other content */
 }
 
-video{
+video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute; /* Makes sure the video stays fixed in place */
+  top: 0;
+  left: 0;
+  filter: brightness(30%) contrast(100%);
 }
 
 .content{
@@ -37,8 +45,7 @@ video{
 }
 
 p{
-  color: rgba(244, 200, 39, 0.921);
-  text-align: center;
+  color: rgb(255, 161, 61);
   font-size: 18px;
 }
 
@@ -59,3 +66,4 @@ p{
 .prediction{
   color: rgb(7, 7, 7);
 }
+

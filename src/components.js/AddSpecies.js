@@ -3,13 +3,10 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Container } from '@mui/material';
 import addNotification from 'react-push-notification';
+import AdminNavBar from "./NavBar";
 
 export default function AddSpecies() {
-    let x = localStorage.getItem('ID');
-    if (x==="null") {
-        window.location.href = '/AdminLogin'
-        
-    }
+    
     const[name=null, setName] = React.useState('')
     const[water_temp=null, setWater] = React.useState('')
     const[ph_level=null, setPh] = React.useState('')
@@ -22,7 +19,7 @@ export default function AddSpecies() {
         e.preventDefault()
         const Species={name,water_temp,ph_level,tank_size,behaviour,diet}
         console.log(Species)
-        fetch("http://localhost:8080/surviva;/add",{
+        fetch("http://localhost:8080/survival;/add",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body: JSON.stringify(Species)
@@ -30,14 +27,14 @@ export default function AddSpecies() {
       if (response.status === 200) {
         addNotification({
           title: 'Notification',
-          message:"Registration Complete",
+          message:"Species Added",
           native:true        
         })
-        window.location.href = '/AddSpecies'
+        window.location.href = '/AddSpecies';
       } else {
         addNotification({
           title: 'status',
-          message:"Registration failed. PLease check the Details you filled",
+          message:"Failed. PLease check the Details you filled",
           native:true        
         })
       }
@@ -48,6 +45,8 @@ export default function AddSpecies() {
     
 
   return (
+    <div>
+    <AdminNavBar/>
     <div class="offset-md-1">
       <h1 align="center">Add Species</h1><br></br>
     <Container 
@@ -58,25 +57,25 @@ export default function AddSpecies() {
       autoComplete="off"
     >
       <div className="input-group mb-5">
-      <TextField id="filled-basic" label="First Name" variant="filled" 
+      <TextField id="filled-basic" label="Species Name" variant="filled" 
       value={name}
       onChange={(e)=>setName(e.target.value)}
       />
       </div>
       <div className="input-group mb-5">
-      <TextField id="filled-basic" label="Phone Number" variant="filled" fullWidth
+      <TextField id="filled-basic" label="Water Temperature" variant="filled" fullWidth
       value={water_temp}
       onChange={(e)=>setWater(e.target.value)}
       />
       </div>
       <div className="input-group mb-5">
-      <TextField id="filled-basic" label="Email" variant="filled" fullWidth
+      <TextField id="filled-basic" label="PH Value" variant="filled" fullWidth
       value={ph_level}
       onChange={(e)=>setPh(e.target.value)}
       />
       </div>
       <div className="input-group mb-5">
-      <TextField id="filled-basic" label="Address" variant="filled" fullWidth
+      <TextField id="filled-basic" label="Tank Size" variant="filled" fullWidth
       value={tank_size}
       onChange={(e)=>setTank(e.target.value)}
       />
@@ -94,10 +93,11 @@ export default function AddSpecies() {
       />
       </div>
       <div className="input-group mb-5">
-     <Button variant="contained" color="success" onClick={Register}>Success
+     <Button variant="contained" color="success" onClick={Register}>Add
      </Button>
      </div>
     </Container>
+    </div>
     </div>
     
   );

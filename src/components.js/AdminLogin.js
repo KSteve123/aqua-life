@@ -25,6 +25,7 @@ export default function Adminlogin() {
         const Admin={email,password}
         console.log(Admin)
         fetch("http://localhost:8080/loginuser/check",{
+          //fetch("192.168.108.146:8080/loginuser/check",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body: JSON.stringify(Admin)

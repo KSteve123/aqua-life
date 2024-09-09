@@ -10,15 +10,12 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Search from "./Search";
+import AdminNavBar from "./NavBar";
 
 
 
 const SpeciesView = () => {
-	let x = localStorage.getItem('ID');
-    if (x==="null") {
-        window.location.href = '/AdminLogin'
-        
-    }
+	
 	const [Species, setSpecies] = useState([]);
     const [search, setSearch] = useState("");
 
@@ -52,6 +49,7 @@ const SpeciesView = () => {
 
 	return (
 		<div>
+			<AdminNavBar/>
 			<section>
 			<Search
 				search={search}

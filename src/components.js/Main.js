@@ -30,6 +30,7 @@ function Main() {
     try {
       // Send image to Python backend
       const response = await axios.post("http://localhost:5000/predict", formData, {
+      //const response = await axios.post("http://192.168.108.146:5000/predict", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -41,6 +42,7 @@ function Main() {
 
       // Retrieve survival data from Spring Boot service
       const survivalResponse = await axios.get(`http://localhost:8080/survival/${fishSpecies}`);
+      //const survivalResponse = await axios.get(`http://192.168.108.146:8080/survival/${fishSpecies}`);
       setSurvivalData(survivalResponse.data);
       
     } catch (error) {
@@ -63,22 +65,22 @@ function Main() {
         <input type="file" onChange={handleFileChange} />
         <button type="submit">Upload and Identify</button><br></br><br></br>
         <button type="button" class="btn btn-dark" onClick={AdminLog}>Admin?</button>
-      </form><br></br>
+      </form></div>
       {prediction && (
-        <div class="mt-4" className="output">
+        <div class="offset-md-1 col-md-10 mt-1 b p-4" className="output">
           <h3 className="prediction">Prediction: {prediction}</h3>
-          <h4>Survival Data:</h4>
+          <h4 className="suv">Survival Data:</h4>
           <p>Name: {survivalData.name}</p>
           <p>Temperature: {survivalData.water_temp} °C</p>
           <p>pH: {survivalData.ph_level}</p>
-          <p>Diet: {survivalData.diet}</p>
           <p>Tank Size: {survivalData.tank_size} Feet</p>
+          <p>Diet: {survivalData.diet}</p>
           <p>Behaviour: {survivalData.behaviour}</p>
           
           
         </div>
       )}
-    </div>
+    
     </div>
     </div>
     </div>
