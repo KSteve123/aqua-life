@@ -11,6 +11,11 @@ import {
 } from "react-router-dom";
 
 const EditSpecies = () => {
+	let x = localStorage.getItem('ID');
+    if (x==="null") {
+        window.location.href = '/AdminLogin'
+        
+    }
 	let navigate = useNavigate();
 
 	const { name } = useParams();
@@ -112,10 +117,58 @@ const EditSpecies = () => {
 					<input
 						className="form-control col-sm-6"
 						type="text"
-						name="payment1"
-						id="email1"
+						name="ph_level"
+						id="ph_level"
 						required
 						value={ph_level}
+						onChange={(e) => handleInputChange(e)}
+					/>
+				</div>
+				<div className="input-group mb-5">
+					<label
+						className="input-group-text"
+						htmlFor="email">
+						Tank Size
+					</label>
+					<input
+						className="form-control col-sm-6"
+						type="text"
+						name="tank_size"
+						id="tank_size"
+						required
+						value={tank_size}
+						onChange={(e) => handleInputChange(e)}
+					/>
+				</div>
+				<div className="input-group mb-5">
+					<label
+						className="input-group-text"
+						htmlFor="email">
+						Behaviour
+					</label>
+					<input
+						className="form-control col-sm-6"
+						type="text"
+						name="behaviour"
+						id="behaviour"
+						required
+						value={behaviour}
+						onChange={(e) => handleInputChange(e)}
+					/>
+				</div>
+				<div className="input-group mb-5">
+					<label
+						className="input-group-text"
+						htmlFor="email">
+						Diet
+					</label>
+					<input
+						className="form-control col-sm-6"
+						type="text"
+						name="diet"
+						id="diet"
+						required
+						value={diet}
 						onChange={(e) => handleInputChange(e)}
 					/>
 				</div>

@@ -7,6 +7,7 @@ import AdminLogin from './components.js/AdminLogin';
 import UserCheck from './components.js/ReturnUser';
 import SpeciesView from './components.js/SpeciesInfo';
 import EditSpecies from './components.js/SpeciesEdit';
+import AddSpecies from './components.js/AddSpecies';
 
 function App() {
     return(
@@ -17,6 +18,7 @@ function App() {
      <Route path='/ReturnUser' element={<UserCheck/>} />
      <Route path='/SpeciesInfo' element={<SpeciesView/>} />
      <Route path='/SpeciesEdit/:name' element={<EditSpecies/>} />
+     <Route path='/AddSpecies' element={<AddSpecies/>} />
      </Routes>
      </BrowserRouter>
     )

@@ -12,7 +12,13 @@ import { Link } from "react-router-dom";
 import Search from "./Search";
 
 
+
 const SpeciesView = () => {
+	let x = localStorage.getItem('ID');
+    if (x==="null") {
+        window.location.href = '/AdminLogin'
+        
+    }
 	const [Species, setSpecies] = useState([]);
     const [search, setSearch] = useState("");
 
@@ -37,7 +43,7 @@ const SpeciesView = () => {
 
     const handleDelete = async (name) => {
 		await axios.delete(
-			`http://localhost:8080/survival/delete/${Species.name}`
+			`http://localhost:8080/survival/delete/${name}`
 		);
 		loadSpecies();
 	};
