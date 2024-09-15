@@ -32,7 +32,7 @@ const EditSpecies = () => {
 	});
 	const {
 		
-		id,
+		
         Name=name,
         water_temp,
         ph_level,
@@ -43,11 +43,11 @@ const EditSpecies = () => {
 	} = Species;
 
     
-
+	
 	useEffect(() => {
 		loadSpecies();
 	}, []);
-
+	
 	const loadSpecies = async () => {
 		const result = await axios.get(
 			`http://localhost:8080/survival/${name}`
@@ -81,6 +81,7 @@ const EditSpecies = () => {
 						Name
 					</label>
 					<input
+						disabled="disabled"
 						className="form-control col-sm-6"
 						type="text"
 						name="name"

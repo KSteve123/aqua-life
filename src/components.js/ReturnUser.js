@@ -23,7 +23,6 @@ fetch("http://localhost:8080/loginuser/Authenticaton")
             window.location.href = '/AdminLogin'
           }
       
-          // Handle the text data if needed
           
         })
         .catch(error => console.log(error))
